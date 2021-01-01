@@ -1,0 +1,3 @@
+Your game assets go in here however you like.
+
+Delete this file whenever you like.
