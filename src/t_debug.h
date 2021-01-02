@@ -33,10 +33,11 @@ enum ECS_SELECT {ALL = 0, ENTITY = 1, COMPONENT = 2, SYSTEM = 3};
 
 // -- FUNC SIGS -- //
 
-void echo_array(const array<const char*>& a);
+void echo_array(const array<strint_t>& a);
 //
 void echo_ecs_list(ECS_SELECT selection);
-void echo_ecs_list(const* char selection);
+void echo_ecs_list(strint_t selection);
+void echo_ecs_list(const char selection);
 
 
 // -------------------------------------------------------------------------- //
@@ -83,7 +84,7 @@ void echo_ecs_list(ECS_SELECT selection = ECS_SELECT.ALL)
 //
 void echo_ecs_list(string_t selection)
 {
-	const char* s = toupper(selection);
+	const char* s = to_upper(selection);
 	switch (s)
 	{
 		case "E":
@@ -101,6 +102,11 @@ void echo_ecs_list(string_t selection)
 			printf("Invalid argument to echo_ecs_list().\n");
 			break;
 	}
+}
+//
+void echo_ecs_list(const char selection)
+{
+	echo_ecs_list(to_string(selection));
 }
 
 
