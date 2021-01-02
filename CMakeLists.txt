@@ -51,6 +51,7 @@ set(CUTE_PONG_SRCS
 	src/main.cpp
 	src/pong_global.h
 	src/pong_utils.h
+	src/pong_graphics.h
 	src/pong_game.h
 )
 
@@ -70,5 +71,5 @@ source_group("imgui" FILES ${CUTE_PONG_IMGUI_SRCS})
 
 target_link_libraries(pong PRIVATE cute)
 target_include_directories(pong PUBLIC "${PROJECT_SOURCE_DIR}/src")
-add_custom_command(TARGET pong POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy "${CUTE_DLL_RELEASE}" $<TARGET_FILE_DIR:pong>)
+add_custom_command(TARGET pong POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy "${PROJECT_SOURCE_DIR}/libraries/cute_framework/mingw/libcute.dll" $<TARGET_FILE_DIR:pong>)
 add_custom_command(TARGET pong POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${PROJECT_SOURCE_DIR}/data" "$<TARGET_FILE_DIR:pong>/data")

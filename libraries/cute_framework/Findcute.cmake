@@ -85,8 +85,6 @@ elseif(MINGW)
 		PATH_SUFFIXES mingw
 		NO_DEFAULT_PATH
 	)
-	set(CUTE_DLL_DEBUG "C:/Users/randy/Documents/projects/cute_pong/libraries/cute_framework/mingw/libcute.dll")
-	set(CUTE_DLL_RELEASE "C:/Users/randy/Documents/projects/cute_pong/libraries/cute_framework/mingw/libcute.dll")
 else() # MSVC or CL
 	set(CF_DEBUG_PATH "msvc/Debug/")
 	set(CF_RELEASE_PATH "msvc/Release/")
