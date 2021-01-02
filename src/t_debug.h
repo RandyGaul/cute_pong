@@ -84,24 +84,18 @@ void echo_ecs_list(ECS_SELECT selection = ECS_SELECT.ALL)
 //
 void echo_ecs_list(string_t selection)
 {
-	const char* s = to_upper(selection);
-	switch (s)
-	{
-		case "E":
-		case "ENTITY":		echo_ecs_list(ECS_SELECT.ENTITY); break;
-		//
-		case "C":
-		case "COMPONENT":	echo_ecs_list(ECS_SELECT.COMPONENT); break;
-		//
-		case "S":
-		case "SYSTEM":		echo_ecs_list(ECS_SELECT.SYSTEM); break;
-		//
-		case "ALL":			echo_ecs_list(ECS_SELECT.ALL); break;
-		//
-		default:
-			printf("Invalid argument to echo_ecs_list().\n");
-			break;
-	}
+	string_t s = to_upper(selection);
+	//
+	if ( (s == "E") || (s == "ENTITY") )
+		echo_ecs_list(ECS_SELECT.ENTITY);
+	else if ( (s == "C") || (s == "COMPONENT") )
+		echo_ecs_list(ECS_SELECT.COMPONENT);
+	else if ( (s == "S") || (s == "SYSTEM") )
+		echo_ecs_list(ECS_SELECT.SYSTEM);
+	else if (s == "ALL")
+		echo_ecs_list(ECS_SELECT.ALL);
+	else
+		printf("Invalid argument to echo_ecs_list().\n");
 }
 //
 void echo_ecs_list(const char selection)
