@@ -75,3 +75,7 @@ target_link_libraries(pong PRIVATE cute)
 target_include_directories(pong PUBLIC "${PROJECT_SOURCE_DIR}/src")
 add_custom_command(TARGET pong POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy "${PROJECT_SOURCE_DIR}/libraries/cute_framework/mingw/libcute.dll" $<TARGET_FILE_DIR:pong>)
 add_custom_command(TARGET pong POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${PROJECT_SOURCE_DIR}/data" "$<TARGET_FILE_DIR:pong>/data")
+
+if (MSVC)
+	set_property(TARGET pong PROPERTY VS_DEBUGGER_WORKING_DIRECTORY $<TARGET_FILE_DIR:pong>)
+endif()
