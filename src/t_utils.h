@@ -46,7 +46,7 @@ string_t to_upper(string_t str)
 {
 	array<char> s = to_array(str);
 	//
-	for (int i = 0; i< str.count(); ++i)
+	for (int i = 0; i< str.size(); ++i)
 		s[i] = toupper(s[i]);
 	//
 	return to_string(s);
@@ -60,7 +60,7 @@ string_t to_lower(string_t str)
 {
 	array<char> s = to_array(str);
 	//
-	for (int i = 0; i< str.count(); ++i)
+	for (int i = 0; i< str.size(); ++i)
 		s[i] = tolower(s[i]);
 	//
 	return to_string(s);
