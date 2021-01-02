@@ -61,14 +61,15 @@ void make_system(void* update_fn, array<const char*> component_type_tuple, void*
 // make_entity()
 // --> configures & registers entity w/ name
 // --> convenience function
+// --> note: incl_components = included components in the entity formula
 // --> basic: make_entity( name, {components-list} )
-// --> reqs: components listed in ... must exist (and registered)
-void make_entity(const char* name, array<const char*> component_types)
+// --> reqs: components in {...} must exist (defined & registered)
+void make_entity(const char* name, array<const char*> incl_components)
 {
 	ecs_entity_begin(app);
 	ecs_entity_set_name(app, name);
-	for (int i = 0; i < component_types.size(); ++i) {
-		ecs_entity_add_component(app, component_types[i]);
+	for (int i = 0; i < incl_components.size(); ++i) {
+		ecs_entity_add_component(app, incl_components[i]);
 	}
 	ecs_entity_end(app);
 }
@@ -95,17 +96,17 @@ void make_component(const char* name, int size_of_component,
 // make_system()
 // --> configures & registers system
 // --> convenience function
-// --> note: component_type_tuple = component-combo required for entity targeting
+// --> note: req_components = component-combo required for entity targeting
 // --> basic: make_system( update_fn, {components-list} )
-void make_system(void* update_fn, array<const char*> component_type_tuple, void* udata, 
+void make_system(void* update_fn, array<const char*> req_components, void* udata, 
 				 void (*pre_update_fn)(app_t* app, float dt, void* udata), 
 				 void (*post_update_fn)(app_t* app, float dt, void* udata)
 				)
 {
 	ecs_system_begin(app);
 	ecs_system_set_update(app, update_fn);
-	for (int i = 0; i < component_type_tuple.size(); ++i) {
-		ecs_system_require_component(app, component_type_tuple[i]);
+	for (int i = 0; i < req_components.size(); ++i) {
+		ecs_system_require_component(app, req_components[i]);
 	}
 	ecs_system_set_optional_pre_update(app, pre_update_fn);
 	ecs_system_set_optional_post_update(app, post_update_fn);
