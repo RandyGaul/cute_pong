@@ -33,10 +33,10 @@ enum ECS_SELECT {ALL = 0, ENTITY = 1, COMPONENT = 2, SYSTEM = 3};
 
 // -- FUNC SIGS -- //
 
-void echo_array(const array<strint_t>& a);
+void echo_array(const array<string_t>& a);
 //
 void echo_ecs_list(ECS_SELECT selection);
-void echo_ecs_list(strint_t selection);
+void echo_ecs_list(string_t selection);
 void echo_ecs_list(const char selection);
 
 
