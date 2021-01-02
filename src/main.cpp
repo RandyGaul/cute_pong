@@ -9,6 +9,7 @@
 //
 
 #include <cute.h>
+#include <t_global.h>
 #include <t_utils.h>
 #include <t_debug.h>
 #include <pong_global.h>

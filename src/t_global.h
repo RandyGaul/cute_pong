@@ -1,17 +1,17 @@
-// pong_global.h
+// t_global.h
 // 
-// Note:	Global vars, etc. (game scope)
+// Note:	Global vars, etc.
+//			Generic and not limited to the specific game.
 //			
 // 			Declare as extern when init outside of this file.
 // 			(so other files will ref its post-init state, not empty)
 
-#ifndef PONG_GLOBAL
-#define PONG_GLOBAL
+#ifndef T_GLOBAL
+#define T_GLOBAL
 
 // -------------------------------------------------------------------------- //
 
 #include <cute.h>
-// #include <t_global.h>
 using namespace cute;
 
 // -------------------------------------------------------------------------- //
@@ -20,10 +20,10 @@ using namespace cute;
 
 //@STUB:	constants, enums, global-vars
 
-// extern const int SCREEN_WIDTH;
-// extern const int SCREEN_HEIGHT;
-// //
-// extern app_t* app;
+extern const int SCREEN_WIDTH;
+extern const int SCREEN_HEIGHT;
+//
+extern app_t* app;
 
 
 // -------------------------------------------------------------------------- //
@@ -50,4 +50,4 @@ using namespace cute;
 
 // -------------------------------------------------------------------------- //
 
-#endif	// PONG_GLOBAL
+#endif	// T_GLOBAL
