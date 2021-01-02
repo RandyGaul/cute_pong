@@ -44,12 +44,12 @@ string_t to_lower(string_t str);
 // --> note: string-mod is best done via array<char> roundtrip conversion
 string_t to_upper(string_t str)
 {
-	array<char> s = to_array(str);
+	array<char> a = to_array(str);
 	//
-	for (int i = 0; i< str.size(); ++i)
-		s[i] = toupper(s[i]);
+	for (int i = 0; i< a.size(); ++i)
+		a[i] = toupper(a[i]);
 	//
-	return to_string(s);
+	return to_string(a);
 }
 
 // to_lower()
@@ -58,12 +58,12 @@ string_t to_upper(string_t str)
 // --> note: string-mod is best done via array<char> roundtrip conversion
 string_t to_lower(string_t str)
 {
-	array<char> s = to_array(str);
+	array<char> a = to_array(str);
 	//
-	for (int i = 0; i< str.size(); ++i)
-		s[i] = tolower(s[i]);
+	for (int i = 0; i< a.size(); ++i)
+		a[i] = tolower(a[i]);
 	//
-	return to_string(s);
+	return to_string(a);
 }
 
 
