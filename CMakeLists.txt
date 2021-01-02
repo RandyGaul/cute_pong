@@ -49,6 +49,8 @@ find_package(cute REQUIRED)
 # Pong by Tony.
 set(CUTE_PONG_SRCS
 	src/main.cpp
+	src/t_utils.h
+	src/t_debug.h
 	src/pong_global.h
 	src/pong_utils.h
 	src/pong_graphics.h

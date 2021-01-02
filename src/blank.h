@@ -30,7 +30,7 @@ using namespace cute;
 
 // -- FUNC SIGS -- //
 
-//@STUB:	function signatures (fwd-eclrations)
+//@STUB:	function signatures (fwd-declrations)
 //			(unnecessary but can serve as a ToC)
 
 

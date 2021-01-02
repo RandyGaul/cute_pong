@@ -9,6 +9,8 @@
 //
 
 #include <cute.h>
+#include <t_utils.h>
+#include <t_debug.h>
 #include <pong_global.h>
 #include <pong_utils.h>
 #include <pong_graphics.h>
@@ -87,7 +89,13 @@ void g_init()
 	//@STUB
 	
 	//@TESTING...
-	Spriter spr = spriter_make();
+	// Spriter spr = spriter_make();
+	//
+	echo_ecs_list('e');
+	// echo_ecs_list('c');
+	// echo_ecs_list('s');
+	// echo_ecs_list('all');
+	// echo_ecs_list();
 	//
 	
 	//init states
