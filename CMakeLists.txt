@@ -33,7 +33,6 @@ add_executable(pong
 )
 source_group("pong" FILES ${CUTE_PONG_SRCS})
 source_group("imgui" FILES ${CUTE_PONG_IMGUI_SRCS})
-
 target_link_libraries(pong PRIVATE cute)
 target_include_directories(pong PUBLIC "${PROJECT_SOURCE_DIR}/src")
 
