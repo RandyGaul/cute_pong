@@ -37,15 +37,15 @@ source_group("imgui" FILES ${CUTE_PONG_IMGUI_SRCS})
 target_link_libraries(pong PRIVATE cute)
 target_include_directories(pong PUBLIC "${PROJECT_SOURCE_DIR}/src")
 
+# Place copy of data folder into build folder.
+add_custom_command(TARGET pong POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${PROJECT_SOURCE_DIR}/data" "$<TARGET_FILE_DIR:pong>/data")
+
 # Web browser build.
 if(EMSCRIPTEN)
 	set(CMAKE_EXECUTABLE_SUFFIX ".html")
 	target_compile_options(pong PUBLIC -O1 -fno-rtti -fno-exceptions)
 	target_link_options(pong PRIVATE -o pong.html --preload-file build/data --emrun -O1)
 endif()
-
-# Place copy of data folder into build folder.
-add_custom_command(TARGET pong POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${PROJECT_SOURCE_DIR}/data" "$<TARGET_FILE_DIR:pong>/data")
 
 if(WIN32)
 	# Copy over the cute shared library into build folder.
