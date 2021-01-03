@@ -48,12 +48,11 @@ endif()
 # Place copy of data folder into build folder.
 add_custom_command(TARGET pong POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${PROJECT_SOURCE_DIR}/data" "$<TARGET_FILE_DIR:pong>/data")
 
-# Copy over the cute shared library into build folder.
-if(WIN32)
-	add_custom_command(TARGET pong POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different "$<$<CONFIG:Debug>:${CUTE_DLL_DEBUG}>$<$<NOT:$<CONFIG:Debug>>:${CUTE_DLL_RELEASE}>" "$<TARGET_FILE_DIR:pong>")
-endif()
 
-# For convenience set MSVC debugger's working directory in the build folder.
-if (MSVC)
+if(WIN32)
+	# Copy over the cute shared library into build folder.
+	add_custom_command(TARGET pong POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different "$<$<CONFIG:Debug>:${CUTE_DLL_DEBUG}>$<$<NOT:$<CONFIG:Debug>>:${CUTE_DLL_RELEASE}>" "$<TARGET_FILE_DIR:pong>")
+
+	# For convenience set MSVC debugger's working directory in the build folder.
 	set_property(TARGET block_man PROPERTY VS_DEBUGGER_WORKING_DIRECTORY $<TARGET_FILE_DIR:block_man>)
 endif()
