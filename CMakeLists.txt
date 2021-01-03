@@ -48,7 +48,6 @@ endif()
 # Place copy of data folder into build folder.
 add_custom_command(TARGET pong POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${PROJECT_SOURCE_DIR}/data" "$<TARGET_FILE_DIR:pong>/data")
 
-
 if(WIN32)
 	# Copy over the cute shared library into build folder.
 	add_custom_command(TARGET pong POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different "$<$<CONFIG:Debug>:${CUTE_DLL_DEBUG}>$<$<NOT:$<CONFIG:Debug>>:${CUTE_DLL_RELEASE}>" "$<TARGET_FILE_DIR:pong>")
