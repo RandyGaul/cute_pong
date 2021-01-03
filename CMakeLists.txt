@@ -37,7 +37,6 @@ source_group("imgui" FILES ${CUTE_PONG_IMGUI_SRCS})
 target_link_libraries(pong PRIVATE cute)
 target_include_directories(pong PUBLIC "${PROJECT_SOURCE_DIR}/src")
 
-
 # Web browser build.
 if(EMSCRIPTEN)
 	set(CMAKE_EXECUTABLE_SUFFIX ".html")
